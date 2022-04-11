@@ -19,5 +19,11 @@ public class CheckingAccount extends Account {
 			System.out.println("Saldo Insuficiente!");
 		}
 	}
+	
+	@Override
+	public String toString() {
+		return "CheckingAccount [accountNumber=" + accountNumber + ", balance=" + balance + ", holder=" + holder
+				+ ", cpf=" + cpf + "]";
+	}
 
 }
