@@ -1,4 +1,4 @@
-package com.wipro.projetofinal.entities;
+package sprint1.entities;
 
 public class CheckingAccount extends Account {
 
@@ -7,8 +7,8 @@ public class CheckingAccount extends Account {
 	}
 
 	/*
-	 * O saque sï¿½ poderï¿½ ser realizado se o saldo da conta for maior ou igual ao
-	 * valor que se quer retirï¿½.
+	 * O saque só poderá ser realizado se o saldo da conta for maior ou igual ao
+	 * valor que se quer retirá.
 	 */
 
 	@Override
@@ -18,6 +18,15 @@ public class CheckingAccount extends Account {
 		} else {
 			System.out.println("Saldo Insuficiente!");
 		}
+	}
+	
+
+	public String toString() {
+		return "======= Conta Corrente ====== \n"
+				+ "Número da conta = " + accountNumber + "\n"
+				+ "Saldo = " + balance + "\n" 
+				+ "Cliente = " + holder + "\n" 
+				+ "CPF = " + cpf  + "\n" ;
 	}
 
 }
