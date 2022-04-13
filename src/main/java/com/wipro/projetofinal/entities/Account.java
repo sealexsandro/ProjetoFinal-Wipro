@@ -1,11 +1,12 @@
-package sprint1.entities;
+package com.wipro.projetofinal.entities;
 
 import java.util.Calendar;
+import com.wipro.projetoFinal.interfaces;
 
-public abstract class Account {
+public abstract class Account implements IAccount{
 
 	protected static Integer count = 1;
-	protected Integer accountNumber;
+	protected Integer accountNumber = 0;
 	protected Double balance;
 	protected String holder;
 	protected String cpf;
@@ -21,7 +22,7 @@ public abstract class Account {
 		this.createdDate = Calendar.getInstance();
 	}
 
-	public void withdraw(double amount) {   // MÈtodo de saque
+	public void withdraw(double amount) {
 		this.balance -= amount;
 	}
 
@@ -38,8 +39,8 @@ public abstract class Account {
 	}
 
 	/*
-	  O mÈtodo abaixo serve para atribuir uma nova instancia de cart„o de crÈdito
-	  ao atributo creditCard da classe
+	 * O m√©todo abaixo serve para atribuir uma nova instancia de cart√£o de cr√©dito
+	 * ao atributo creditCard da classe
 	 */
 	public void assignCreditCard(CreditCard creditCard) {
 		this.creditCard = creditCard;
@@ -69,6 +70,10 @@ public abstract class Account {
 		return creditCard;
 	}
 
-	
+	@Override
+	public String toString() {
+		return "Account [accountNumber=" + accountNumber + ", balance=" + balance + ", holder=" + holder + ", cpf="
+				+ cpf + "]";
+	}
 
 }

@@ -1,15 +1,15 @@
-package sprint1.entities;
+package com.wipro.projetofinal.entities;
 
 import java.util.Calendar;
 
-import sprint1.entities.enums.CardLevel;
+import com.wipro.projetofinal.entities.enums.CardLevel;
+
 
 public class CreditCard {
 
 	private String cardNumber;
 	private Double limit;
 	private String cvv;
-//	private Date expirationDate;
 	private Calendar expirationDate;
 	private String flag;
 	private CardLevel cardLevel;
@@ -26,7 +26,7 @@ public class CreditCard {
 		this.limit = 300.0;
 		this.cvv = cvv;
 		this.expirationDate = Calendar.getInstance();
-		this.expirationDate.add(Calendar.YEAR, 6); // A validade será contada da data atual somado com mais 6 anos
+		this.expirationDate.add(Calendar.YEAR, 6); // A validade serÃ¯Â¿Â½ contada da data atual somado com mais 6 anos
 		this.flag = "MASTERCARD";
 		this.cardLevel = CardLevel.BRONZE;
 	}
@@ -62,19 +62,18 @@ public class CreditCard {
 	@Override
 	public String toString() {
 		int mes = this.expirationDate.get(Calendar.MONTH) + 1;
-		int ano = this.expirationDate.get(Calendar.YEAR) + 1;
+		int ano = this.expirationDate.get(Calendar.YEAR);
 
 		String expirationDate = "" + mes + "/" + ano;
 
-		return "====== Cartão de crédito ====== \n"
-				+ "Número do cartão = " + cardNumber + "\n"
-				+ "Limite do cartão =" + limit + "\n"
+			return "====== CartÃ£o de crÃ©dito ====== \n"
+				+ "NÃºmero do cartÃ£o = " + cardNumber + "\n"
+				+ "Limite do cartÃ£o =" + limit + "\n"
 				+ "CVV = " + cvv + "\n"
-				+ "Data de válidade = " + expirationDate + "\n"
+				+ "Data de vÃ¡lidade = " + expirationDate + "\n"
 				+ "Bandeira " + flag + "\n"
-				+ "Nível do cartao = " + cardLevel + "\n"
+				+ "NÃ­vel do cartao = " + cardLevel + "\n"
 				+ "ativo = " + ativo + "\n";
-				
 	}
 
 }
