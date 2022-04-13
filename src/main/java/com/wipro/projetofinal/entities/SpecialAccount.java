@@ -21,14 +21,9 @@ public class SpecialAccount extends Account {
 			System.out.println("Saldo Insuficiente!");
 		}
 	}
-	
+
 	public String toString() {
-		return "======= Conta Especial ====== \n"
-				+ "Número da conta = " + accountNumber + "\n"
-				+ "Saldo = " + balance + "\n" 
-				+ "Cliente = " + holder + "\n" 
-				+ "CPF =" + cpf + "\n" 
-				+ "Limite da conta = " + limit + "\n"; 
+		return "\n======= Conta Especial ====== \n" + "Número da conta = " + accountNumber + "\n" + "Saldo = " + balance
+				+ "\n" + "Cliente = " + holder + "\n" + "CPF =" + cpf + "\n" + "Limite da conta = " + limit + "\n";
 	}
 }
-

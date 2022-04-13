@@ -6,7 +6,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.wipro.projetofinal.entities.CheckingAccount;
 import com.wipro.projetofinal.service.ManageAccounts;
 
-
 @SpringBootApplication
 public class ProjetofinalWiproApplication {
 
@@ -17,8 +16,10 @@ public class ProjetofinalWiproApplication {
 		CheckingAccount contaCorrente1 = new CheckingAccount(0.0, "Mario", "529.982.247-25");
 		CheckingAccount contaCorrente2 = new CheckingAccount(0.0, "Joao", "529.982.247-27");
 		CheckingAccount contaCorrente3 = new CheckingAccount(0.0, "Ana Beatriz", "529.982.247-28");
-		//	CheckingAccount contaCorrente3 = new CheckingAccount(0.0, "Maria", "529.982.247-25");
-		//	CheckingAccount contaCorrente4 = new CheckingAccount(0.0, "Neves", "529.982.247-25");
+		// CheckingAccount contaCorrente3 = new CheckingAccount(0.0, "Maria",
+		// "529.982.247-25");
+		// CheckingAccount contaCorrente4 = new CheckingAccount(0.0, "Neves",
+		// "529.982.247-25");
 
 		ManageAccounts gerenciaContas = new ManageAccounts();
 

@@ -1,9 +1,10 @@
 package com.wipro.projetofinal.entities;
 
 import java.util.Calendar;
-import com.wipro.projetoFinal.interfaces;
 
-public abstract class Account implements IAccount{
+import com.wipro.projetofinal.entities.interfaces.IAccount;
+
+public abstract class Account implements IAccount {
 
 	protected static Integer count = 1;
 	protected Integer accountNumber = 0;
