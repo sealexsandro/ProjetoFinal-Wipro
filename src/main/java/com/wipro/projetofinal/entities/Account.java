@@ -39,7 +39,7 @@ public abstract class Account implements IAccount{
 	}
 
 	/*
-	 * O m�todo abaixo serve para atribuir uma nova instancia de cart�o de cr�dito
+	 * O método abaixo serve para atribuir uma nova instancia de cartão de crédito
 	 * ao atributo creditCard da classe
 	 */
 	public void assignCreditCard(CreditCard creditCard) {

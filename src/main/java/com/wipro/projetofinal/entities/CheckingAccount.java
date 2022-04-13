@@ -7,10 +7,9 @@ public class CheckingAccount extends Account {
 	}
 
 	/*
-	 * O saque s� poder� ser realizado se o saldo da conta for maior ou igual ao
-	 * valor que se quer retir�.
+	* O saque só poderá ser realizado se o saldo da conta for maior ou igual ao
+	 * valor que se quer retirá.
 	 */
-
 	@Override
 	public void withdraw(double amount) {
 		if (this.balance >= amount) {
@@ -20,10 +19,12 @@ public class CheckingAccount extends Account {
 		}
 	}
 	
-	@Override
 	public String toString() {
-		return "CheckingAccount [accountNumber=" + accountNumber + ", balance=" + balance + ", holder=" + holder
-				+ ", cpf=" + cpf + "]";
+		return "======= Conta Corrente ====== \n"
+				+ "Número da conta = " + accountNumber + "\n"
+				+ "Saldo = " + balance + "\n" 
+				+ "Cliente = " + holder + "\n" 
+				+ "CPF = " + cpf  + "\n" ;
 	}
 
 }

@@ -1,9 +1,8 @@
-package com.wipro.projetofinal.service;
+package sprint1.service;
 
 import java.util.List;
 
-import com.wipro.projetofinal.entities.Account;
-
+import sprint1.entities.Account;
 
 public class ValidationCreditCard {
 

@@ -10,7 +10,6 @@ public class CreditCard {
 	private String cardNumber;
 	private Double limit;
 	private String cvv;
-//	private Date expirationDate;
 	private Calendar expirationDate;
 	private String flag;
 	private CardLevel cardLevel;
@@ -27,7 +26,7 @@ public class CreditCard {
 		this.limit = 300.0;
 		this.cvv = cvv;
 		this.expirationDate = Calendar.getInstance();
-		this.expirationDate.add(Calendar.YEAR, 6); // A validade ser� contada da data atual somado com mais 6 anos
+		this.expirationDate.add(Calendar.YEAR, 6); // A validade serï¿½ contada da data atual somado com mais 6 anos
 		this.flag = "MASTERCARD";
 		this.cardLevel = CardLevel.BRONZE;
 	}
@@ -67,8 +66,14 @@ public class CreditCard {
 
 		String expirationDate = "" + mes + "/" + ano;
 
-		return "CreditCard [cardNumber=" + cardNumber + ", limit=" + limit + ", cvv=" + cvv + ", expirationDate= " + expirationDate
-				+ ", flag=" + flag + ", cardLevel=" + cardLevel + ", ativo=" + ativo + "]";
+			return "====== Cartão de crédito ====== \n"
+				+ "Número do cartão = " + cardNumber + "\n"
+				+ "Limite do cartão =" + limit + "\n"
+				+ "CVV = " + cvv + "\n"
+				+ "Data de válidade = " + expirationDate + "\n"
+				+ "Bandeira " + flag + "\n"
+				+ "Nível do cartao = " + cardLevel + "\n"
+				+ "ativo = " + ativo + "\n";
 	}
 
 }

@@ -10,8 +10,8 @@ public class SpecialAccount extends Account {
 	}
 
 	/*
-	 * O saque s� poder� ser realizado se o saldo da conta somado com o limite for
-	 * maior ou igual ao valor que se quer retir�.
+	 * O saque só poderá ser realizado se o saldo da conta somado com o limite for
+	 * maior ou igual ao valor que se quer retirá.
 	 */
 	@Override
 	public void withdraw(double amount) {
@@ -22,9 +22,13 @@ public class SpecialAccount extends Account {
 		}
 	}
 	
-	@Override
 	public String toString() {
-		return "SpecialAccount [limit=" + limit + ", AccountNumber=" + getAccountNumber() + ", holder="
-				+ getHolder() + ", balance=" + getBalance() + ", cpf=" + getCpf() + "]";
+		return "======= Conta Especial ====== \n"
+				+ "Número da conta = " + accountNumber + "\n"
+				+ "Saldo = " + balance + "\n" 
+				+ "Cliente = " + holder + "\n" 
+				+ "CPF =" + cpf + "\n" 
+				+ "Limite da conta = " + limit + "\n"; 
 	}
 }
+
