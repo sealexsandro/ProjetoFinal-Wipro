@@ -21,10 +21,4 @@ public class SpecialAccount extends Account {
 			System.out.println("Saldo Insuficiente!");
 		}
 	}
-	
-	@Override
-	public String toString() {
-		return "SpecialAccount [limit=" + limit + ", AccountNumber=" + getAccountNumber() + ", holder="
-				+ getHolder() + ", balance=" + getBalance() + ", cpf=" + getCpf() + "]";
-	}
 }
