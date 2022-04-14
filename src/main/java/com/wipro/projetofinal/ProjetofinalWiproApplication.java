@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.wipro.projetofinal.entities.CheckingAccount;
+import com.wipro.projetofinal.entities.SpecialAccount;
 import com.wipro.projetofinal.service.ManageAccounts;
 
 @SpringBootApplication
@@ -14,8 +15,12 @@ public class ProjetofinalWiproApplication {
 //		SpringApplication.run(ProjetofinalWiproApplication.class, args);
 
 		CheckingAccount contaCorrente1 = new CheckingAccount(0.0, "Mario", "529.982.247-25");
+	
 		CheckingAccount contaCorrente2 = new CheckingAccount(0.0, "Joao", "529.982.247-27");
 		CheckingAccount contaCorrente3 = new CheckingAccount(0.0, "Ana Beatriz", "529.982.247-28");
+		
+		SpecialAccount specialAccount = new SpecialAccount(0.0, "Mario", 1000.0, "529.982.247-25");
+	
 		// CheckingAccount contaCorrente3 = new CheckingAccount(0.0, "Maria",
 		// "529.982.247-25");
 		// CheckingAccount contaCorrente4 = new CheckingAccount(0.0, "Neves",
@@ -26,6 +31,7 @@ public class ProjetofinalWiproApplication {
 		gerenciaContas.addAccount(contaCorrente1);
 		gerenciaContas.addAccount(contaCorrente2);
 		gerenciaContas.addAccount(contaCorrente3);
+		gerenciaContas.addAccount(specialAccount);
 
 		// Imprimir todas as contas
 		gerenciaContas.showAllAccounts();
@@ -34,7 +40,9 @@ public class ProjetofinalWiproApplication {
 		System.out.println(gerenciaContas.showAccount("529.982.247-278"));
 
 		// remover uma conta
-		gerenciaContas.removeAccount("529.982.247-27");
+//		gerenciaContas.removeAccount("529.982.247-27");
+		int numberAccount = specialAccount.getAccountNumber();
+		gerenciaContas.removeAccount(numberAccount);
 //
 		// Imprimir todas as contas
 		gerenciaContas.showAllAccounts();

@@ -39,10 +39,10 @@ public class ManageAccounts {
 		}
 	}
 
-	public void removeAccount(String cpf) {
+	public void removeAccount(Integer numberAccount) {
 
 		for (Account account : accounts) {
-			if (account.getCpf().equals(cpf)) {
+			if (account.getAccountNumber() == numberAccount) {
 				accounts.remove(account);
 				break;
 			}
