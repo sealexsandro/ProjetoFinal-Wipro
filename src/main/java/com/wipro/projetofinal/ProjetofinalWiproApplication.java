@@ -1,11 +1,14 @@
 package com.wipro.projetofinal;
 
+import java.util.Scanner;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.wipro.projetofinal.entities.CheckingAccount;
+import com.wipro.projetofinal.entities.SpecialAccount;
 import com.wipro.projetofinal.service.ManageAccounts;
-
+import com.wipro.projetofinal.service.ValidationAccount;
 
 @SpringBootApplication
 public class ProjetofinalWiproApplication {
@@ -146,6 +149,9 @@ public class ProjetofinalWiproApplication {
 		return "voltando para o menu principal";
 	}
 	
+=======
+
+
 	public static void showMenu() {
 
 		System.out.println("************************************************");
@@ -163,111 +169,94 @@ public class ProjetofinalWiproApplication {
 		// Não apaguem esta linha de baixo
 //		SpringApplication.run(ProjetofinalWiproApplication.class, args);
 
-		
 		ManageAccounts ma = new ManageAccounts();
-		
+
 		Scanner leia = new Scanner(System.in);
-		String nome,cpf;
-		int op,tipoConta,numberAccount;
+		String nome, cpf;
+		int op, tipoConta;
 		char decision = ' ';
-		
+
 		do {
-			
-			showMenu();			
+
+			showMenu();
 			op = leia.nextInt();
-			
-			switch(op) {
-				
+
+			switch (op) {
+
 			case 1:
 				System.out.println("***************************************");
 				System.out.println("Escolha o tipo de conta: [1] Conta corrente [2] Conta especial");
 				tipoConta = leia.nextInt();
-				
-				
-				while(tipoConta != 1 && tipoConta != 2) {
+
+				while (tipoConta != 1 && tipoConta != 2) {
 					System.out.println("Escolha o tipo de conta: [1] Conta corrente [2] Conta especial");
 					tipoConta = leia.nextInt();
-				}		
-				
+				}
+
 				System.out.println("Digite o nome do cliente:");
 				leia.nextLine();
-				nome = leia.nextLine();				
+				nome = leia.nextLine();
 				System.out.println("Digite o cpf do cliente:");
 				cpf = leia.next();
-				
-				while(!ValidationAccount.isCPF(cpf)) {					
+
+				while (!ValidationAccount.isCPF(cpf)) {
 					System.out.println("O mer irmão, presta atenção! Digite um cpf válido:");
 					cpf = leia.next();
-					//666.88.996-7-false
-					//888.888.888-67-true
-				}				
-				
-				if(tipoConta == 1) {					
-					CheckingAccount cc = new CheckingAccount(0.0,nome,cpf);
-					
-					System.out.println("\n"+cc.toString()+"\n");
-					
-				
+					// 666.88.996-7-false
+					// 888.888.888-67-true
+				}
+
+				if (tipoConta == 1) {
+					CheckingAccount cc = new CheckingAccount(0.0, nome, cpf);
+
+					System.out.println("\n" + cc.toString() + "\n");
+
 					System.out.println("Confirma os dados? [S][s]sim [N][n]não");
-					
-					decision =  leia.next().charAt(0);
-					
-					if(decision == 'S' || decision == 's') {
-						System.out.print("");
-						if(ma.addAccount(cc) == "Adicionado com sucesso !!") {
-							System.out.print("Conta corrente foi adicionada com sucesso !!\n"); 
-							menuOperacoes(cc,ma);
-						}
-						else if (ma.addAccount(cc) == "já existe uma conta com esse CPF.") {
-							System.out.print("Já existe uma conta corrente com esse CPF, favor informar outro.\n");
-							cc = null;
-						}
-					}else {
+
+					decision = leia.next().charAt(0);
+
+					if (decision == 'S' || decision == 's') {
+						ma.addAccount(cc);
+						System.out.println("Conta corrente adicionada  com sucesso");
+					} else {
 						System.out.println("Conta não criada");
 						cc = null;
-					}	
-					
-				}else if(tipoConta == 2) {
-					SpecialAccount sa = new SpecialAccount(0.0,nome,300.0,cpf);
-					System.out.println("\n"+sa.toString()+"\n");
-					
+					}
+
+				} else if (tipoConta == 2) {
+					SpecialAccount sa = new SpecialAccount(0.0, nome, 300.0, cpf);
+					System.out.println("\n" + sa.toString() + "\n");
+
 					System.out.println("Confirma os dados? [S][s]sim [N][n]não");
-					decision =  leia.next().charAt(0);
-					if(decision == 'S' || decision == 's') {
-						if(ma.addAccount(sa) == "Adicionado com sucesso !!") {
-							System.out.print("Conta especial foi adicionada com sucesso !!\n"); 
-							menuOperacoes(sa,ma);
-						}
-						else if (ma.addAccount(sa) == "já existe uma conta com esse CPF.") {
-							System.out.print("Já existe uma conta especial com esse CPF, favor informar outro.\n");
-							sa = null;
-						}
-					}else {
+					decision = leia.next().charAt(0);
+					if (decision == 'S' || decision == 's') {
+						ma.addAccount(sa);
+						System.out.println("Conta especial adicionada com sucesso");
+					} else {
 						System.out.println("Conta não criada");
 						sa = null;
-					}	
-				}				
+					}
+				}
 				break;
-				
+
 			case 2:
-				System.out.println("Digite o número da conta:");
-				numberAccount = leia.nextInt();
-				System.out.println(""+ma.showAccount(numberAccount)+"");
+				System.out.println("Digite o cpf do cliente:");
+				cpf = leia.next();
+				System.out.println("" + ma.showAccount(cpf) + "");
 				break;
-				
+
 			case 3:
 				ma.showAllAccounts();
-				break;	
-				
-			case 4:	
 				break;
-				
+
+			case 4:
+				break;
+
 			default:
 				System.err.println("Escolha uma opção seu jeca!");
 				break;
-			}			
-			
-		}while(op != 4);
-	}
+			}
+
+		} while (op != 4);
 
 }

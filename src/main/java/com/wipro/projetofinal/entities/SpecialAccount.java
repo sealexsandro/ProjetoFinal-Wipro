@@ -31,6 +31,4 @@ public class SpecialAccount extends Account {
 		return "\n======= Conta Especial ====== \n" + "Número da conta = " + accountNumber + "\n" + "Saldo = " + balance
 				+ "\n" + "Cliente = " + holder + "\n" + "CPF =" + cpf + "\n" + "Limite da conta = " + limit + "\n"+"Cartão de crédito: vazio";
 		}
-	}
 }
-

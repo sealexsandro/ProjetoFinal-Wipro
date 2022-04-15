@@ -4,7 +4,6 @@ import java.util.Calendar;
 
 import com.wipro.projetofinal.entities.enums.CardLevel;
 
-
 public class CreditCard {
 
 	private String cardNumber;
@@ -66,14 +65,9 @@ public class CreditCard {
 
 		String expirationDate = "" + mes + "/" + ano;
 
-			return "====== Cartão de crédito ====== \n"
-				+ "Número do cartão = " + cardNumber + "\n"
-				+ "Limite do cartão =" + limit + "\n"
-				+ "CVV = " + cvv + "\n"
-				+ "Data de válidade = " + expirationDate + "\n"
-				+ "Bandeira " + flag + "\n"
-				+ "Nível do cartao = " + cardLevel + "\n"
-				+ "ativo = " + ativo + "\n";
+		return "\n====== Cartão de crédito ====== \n" + "Número do cartão = " + cardNumber + "\n" + "Limite do cartão ="
+				+ limit + "\n" + "CVV = " + cvv + "\n" + "Data de válidade = " + expirationDate + "\n" + "Bandeira "
+				+ flag + "\n" + "Nível do cartao = " + cardLevel + "\n" + "ativo = " + ativo + "\n";
 	}
 
 }
