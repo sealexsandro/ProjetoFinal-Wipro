@@ -21,14 +21,17 @@ public class SpecialAccount extends Account {
 			System.out.println("Saldo Insuficiente!");
 		}
 	}
-	
+
 	@Override
 	public String toString() {
-		if(creditCard !=null) {
-			return "\n======= Conta Especial ====== \n" + "Número da conta = " + accountNumber + "\n" + "Saldo = " + balance
-					+ "\n" + "Cliente = " + holder + "\n" + "CPF =" + cpf + "\n" + "Limite da conta = " + limit + "\n"+creditCard.toString();
-		}else {
-		return "\n======= Conta Especial ====== \n" + "Número da conta = " + accountNumber + "\n" + "Saldo = " + balance
-				+ "\n" + "Cliente = " + holder + "\n" + "CPF =" + cpf + "\n" + "Limite da conta = " + limit + "\n"+"Cartão de crédito: vazio";
+		if (creditCard != null) {
+			return "\n======= Conta Especial ====== \n" + "Número da conta = " + accountNumber + "\n" + "Saldo = "
+					+ balance + "\n" + "Cliente = " + holder + "\n" + "CPF =" + cpf + "\n" + "Limite da conta = "
+					+ limit + "\n" + creditCard.toString();
+		} else {
+			return "\n======= Conta Especial ====== \n" + "Número da conta = " + accountNumber + "\n" + "Saldo = "
+					+ balance + "\n" + "Cliente = " + holder + "\n" + "CPF =" + cpf + "\n" + "Limite da conta = "
+					+ limit + "\n" + "Cartão de crédito: vazio";
 		}
+	}
 }
