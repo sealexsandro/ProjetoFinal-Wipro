@@ -19,12 +19,15 @@ public class CheckingAccount extends Account {
 		}
 	}
 	
+	@Override
 	public String toString() {
-		return "======= Conta Corrente ====== \n"
-				+ "Número da conta = " + accountNumber + "\n"
-				+ "Saldo = " + balance + "\n" 
-				+ "Cliente = " + holder + "\n" 
-				+ "CPF = " + cpf  + "\n" ;
+		if (creditCard !=null) {
+		return "\n======= Conta Corrente ====== \n" + "Número da conta = " + accountNumber + "\n" + "Saldo = " + balance
+				+ "\n" + "Cliente = " + holder + "\n" + "CPF = " + cpf + "\n"+creditCard.toString();
+		}else {
+		return "\n======= Conta Corrente ====== \n" + "Número da conta = " + accountNumber + "\n" + "Saldo = " + balance
+				+ "\n" + "Cliente = " + holder + "\n" + "CPF = " + cpf + "\n"+"Cartão de crédito: vazio";
+		}
 	}
 
 }
