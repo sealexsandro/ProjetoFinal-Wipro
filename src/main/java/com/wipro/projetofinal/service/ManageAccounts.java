@@ -21,7 +21,7 @@ public class ManageAccounts {
 
 		if (!ValidationAccount.existNumberCPF(account.getCpf(), this.accounts)) {
 			this.accounts.add(account);
-			System.out.println("Adicionado com sucesso !!");
+			return "Adicionado com sucesso !!";
 		} else {
 			if (ValidationAccount.getNumberOfAccounts(account.getCpf(), this.accounts) < 2) {
 				String className = account.getClass().getName();
