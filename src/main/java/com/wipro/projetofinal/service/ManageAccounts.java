@@ -85,10 +85,10 @@ public class ManageAccounts {
 		account.assignCreditCard(creditCard);
 	}
 
-	public String showAccount(String cpf) {
+	public String showAccount(Integer numberAccount) {
 
 		for (Account account : accounts) {
-			if (account.getCpf().equals(cpf)) {
+			if (account.getAccountNumber() == numberAccount) {
 				return account.toString();
 			}
 		}
