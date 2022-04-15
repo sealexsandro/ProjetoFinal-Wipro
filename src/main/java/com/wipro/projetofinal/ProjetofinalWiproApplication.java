@@ -116,7 +116,8 @@ public class ProjetofinalWiproApplication {
 			System.out.println("[1] Depositar");
 			System.out.println("[2] Sacar");
 			System.out.println("[3] Habilitar cartão de crédito");
-			System.out.println("[4] Sair");
+			System.out.println("[4] Mostrar saldo");
+			System.out.println("[5] Sair");
 			System.out.println("************************************************");
 			System.out.println("Escolha uma opção:");
 			Scanner leia = new Scanner(System.in);
@@ -126,17 +127,25 @@ public class ProjetofinalWiproApplication {
 				System.out.println("Quanto deseja depositar?");
 				valor = leia.nextDouble();
 				a.deposit(valor);
+				System.out.println("Seu saldo é de :  R$" + a.getBalance());
+				
 				break;
 			case 2:
 				System.out.println("Quanto deseja sacar?");
 				valor = leia.nextDouble();
 				a.withdraw(valor);
+				System.out.println("Seu saldo é de : R$" + a.getBalance());
 				break;
 			case 3:
 				ma.activateCreditCard(a);
 				System.out.println("Cartão Ativado com sucesso");
 				break;
+				
 			case 4:
+				System.out.println("Seu saldo é de :  R$" + a.getBalance());
+				break;
+				
+			case 5:
 				return "voltando para o menu principal";
 
 			default:
@@ -144,7 +153,7 @@ public class ProjetofinalWiproApplication {
 				break;
 			}
 
-		} while (op != 4);
+		} while (op != 5);
 		return "voltando para o menu principal";
 	}
 
@@ -156,7 +165,8 @@ public class ProjetofinalWiproApplication {
 		System.out.println("[1] Criar conta");
 		System.out.println("[2] Consultar uma conta");
 		System.out.println("[3] Consultar todas as contas");
-		System.out.println("[4] Sair");
+		System.out.println("[4] Remover uma conta");
+		System.out.println("[5] Sair");
 		System.out.println("************************************************");
 		System.out.println("Escolha uma opção:");
 	}
@@ -196,7 +206,7 @@ public class ProjetofinalWiproApplication {
 				cpf = leia.next();
 
 				while (!ValidationAccount.isCPF(cpf)) {
-					System.out.println("O mer irmão, presta atenção! Digite um cpf válido:");
+					System.out.println("CPF inválido. Favor digite um cpf válido:");
 					cpf = leia.next();
 					// 666.88.996-7-false
 					// 888.888.888-67-true
@@ -251,20 +261,29 @@ public class ProjetofinalWiproApplication {
 				System.out.println("Digite o número da conta:");
 				numberAccount = leia.nextInt();
 				System.out.println(""+ma.showAccount(numberAccount)+"");
+				
 				break;
 
 			case 3:
 				ma.showAllAccounts();
 				break;
 
+
 			case 4:
+				System.out.println("Digite o número da conta:");
+				numberAccount = leia.nextInt();
+				System.out.println(""+ma.removeAccount(numberAccount)+"");
+				
+				break;
+
+			case 5:
 				break;
 
 			default:
-				System.err.println("Escolha uma opção seu jeca!");
+				System.err.println("Favor escolha uma das opções válidas.");
 				break;
 			}
 
-		} while (op != 4);
+		} while (op != 5);
 	}
 }

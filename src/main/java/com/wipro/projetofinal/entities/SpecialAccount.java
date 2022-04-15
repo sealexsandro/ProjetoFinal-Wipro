@@ -15,10 +15,15 @@ public class SpecialAccount extends Account {
 	 */
 	@Override
 	public void withdraw(double amount) {
-		if ((this.balance + this.limit) >= amount) {
-			super.withdraw(amount);
+		if (amount < 0) {
+			System.out.println("Operação inválida.");
 		} else {
-			System.out.println("Saldo Insuficiente!");
+			if ((this.balance + this.limit) >= amount) {
+				super.withdraw(amount);
+				System.out.println("Saque realizado com sucesso !");
+			} else {
+				System.out.println("Saldo Insuficiente!");
+			}
 		}
 	}
 
@@ -31,7 +36,7 @@ public class SpecialAccount extends Account {
 		} else {
 			return "\n======= Conta Especial ====== \n" + "Número da conta = " + accountNumber + "\n" + "Saldo = "
 					+ balance + "\n" + "Cliente = " + holder + "\n" + "CPF =" + cpf + "\n" + "Limite da conta = "
-					+ limit + "\n" + "Cartão de crédito: vazio";
+					+ limit + "\n" + "Cartão de crédito: não possui";
 		}
 	}
 }

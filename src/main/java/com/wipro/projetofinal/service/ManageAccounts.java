@@ -38,13 +38,16 @@ public class ManageAccounts {
 		}
 	}
 
-	public void removeAccount(Integer numberAccount) {
+	public String removeAccount(Integer numberAccount) {
 		for (Account account : accounts) {
 			if (account.getAccountNumber() == numberAccount) {
 				accounts.remove(account);
-				break;
+				return "Conta Removida com sucesso !!";
+				
 			}
 		}
+		
+		return "Conta não encontrada";
 	}
 
 	public String randomNumberCreditCard() {
@@ -97,13 +100,19 @@ public class ManageAccounts {
 	}
 
 	public void showAllAccounts() {
-
-		System.out.println("\tTodas as Contas");
-		System.out.println("------------------------------------------");
-		for (Account conta : this.accounts) {
-			System.out.println(conta.toString());
+		if(accounts.size() <= 0) {
+			System.out.println("Não há contas cadastradas.");
+		}else {
+			System.out.println("\tTodas as Contas");
+			System.out.println("------------------------------------------");
+			for (Account conta : this.accounts) {
+				System.out.println(conta.toString());
+			}
+			System.out.println("-------------------------------------------");
+			
 		}
-		System.out.println("-------------------------------------------");
+		
+		
 
 	}
 }

@@ -34,6 +34,7 @@ public abstract class Account implements IAccount {
 	public void deposit(double amount) {
 		if (amount > 0.0) {
 			this.balance += amount;
+			System.out.println("Depósito realizado com sucesso !!");
 		} else {
 			System.out.println("Valor Invalido!");
 		}
@@ -43,9 +44,10 @@ public abstract class Account implements IAccount {
 	 * O método abaixo serve para atribuir uma nova instancia de cartão de crédito
 	 * ao atributo creditCard da classe
 	 */
-	public void assignCreditCard(CreditCard creditCard) {
+	
+		public void assignCreditCard(CreditCard creditCard) {
 		this.creditCard = creditCard;
-	}
+	} 
 
 	public Integer getAccountNumber() {
 		return accountNumber;
@@ -59,9 +61,6 @@ public abstract class Account implements IAccount {
 		return balance;
 	}
 
-	public String getName() {
-		return holder;
-	}
 
 	public String getCpf() {
 		return cpf;
