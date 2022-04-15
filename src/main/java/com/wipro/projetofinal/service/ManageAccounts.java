@@ -27,20 +27,18 @@ public class ManageAccounts {
 				String className = account.getClass().getName();
 				if (!ValidationAccount.existClassNameAccount(className, this.accounts)) {
 					this.accounts.add(account);
-					System.out.println("Adicionado com sucesso !!");
+					return "Adicionado com sucesso !!";
 				} else {
-					System.out.println("j� existe uma conta com esse CPF.");
+					return "já existe uma conta com esse CPF.";
 				}
-
 			} else {
-				System.out.println("j� existe uma conta com esse CPF.");
+				return "já existe uma conta com esse CPF.";
 			}
 
 		}
 	}
 
 	public void removeAccount(Integer numberAccount) {
-
 		for (Account account : accounts) {
 			if (account.getAccountNumber() == numberAccount) {
 				accounts.remove(account);
