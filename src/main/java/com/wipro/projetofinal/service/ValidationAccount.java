@@ -1,13 +1,13 @@
-package sprint1.service;
+package com.wipro.projetofinal.service;
 
 import java.util.InputMismatchException;
 import java.util.List;
 
-import sprint1.entities.Account;
+import com.wipro.projetofinal.entities.Account;
 
 public class ValidationAccount {
 
-	// Não estamos utilizando o metodo abaixo
+	// Nï¿½o estamos utilizando o metodo abaixo
 	public static boolean existNumberAcount(Integer numberAccount, List<Account> accounts) {
 		for (Account account : accounts) {
 			if (account.getAccountNumber() == numberAccount) {
@@ -82,19 +82,18 @@ public class ValidationAccount {
 			return (false);
 		}
 	}
-	
-	
+
 	public static boolean existClassNameAccount(String className, List<Account> accounts) {
 		for (Account account : accounts) {
 			if (account.getClass().getName().equals(className)) {
 				return true;
 			}
 		}
-		
+
 		return false;
-		
+
 	}
-	
+
 	public static int getNumberOfAccounts(String cpf, List<Account> accounts) {
 		int numberOfAccounts = 0;
 		for (Account account : accounts) {
@@ -102,7 +101,7 @@ public class ValidationAccount {
 				numberOfAccounts++;
 			}
 		}
-		
+
 		return numberOfAccounts;
 	}
 

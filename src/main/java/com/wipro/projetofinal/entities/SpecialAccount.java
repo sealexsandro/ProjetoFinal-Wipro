@@ -22,13 +22,13 @@ public class SpecialAccount extends Account {
 		}
 	}
 	
+	@Override
 	public String toString() {
-		return "======= Conta Especial ====== \n"
-				+ "Número da conta = " + accountNumber + "\n"
-				+ "Saldo = " + balance + "\n" 
-				+ "Cliente = " + holder + "\n" 
-				+ "CPF =" + cpf + "\n" 
-				+ "Limite da conta = " + limit + "\n"; 
-	}
+		if(creditCard !=null) {
+			return "\n======= Conta Especial ====== \n" + "Número da conta = " + accountNumber + "\n" + "Saldo = " + balance
+					+ "\n" + "Cliente = " + holder + "\n" + "CPF =" + cpf + "\n" + "Limite da conta = " + limit + "\n"+creditCard.toString();
+		}else {
+		return "\n======= Conta Especial ====== \n" + "Número da conta = " + accountNumber + "\n" + "Saldo = " + balance
+				+ "\n" + "Cliente = " + holder + "\n" + "CPF =" + cpf + "\n" + "Limite da conta = " + limit + "\n"+"Cartão de crédito: vazio";
+		}
 }
-
