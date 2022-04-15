@@ -18,39 +18,37 @@ public class ManageAccounts {
 	}
 
 	/*
-	 * Pela regra que implementamos, N„o se pode adicionar uma nova para um mesmo
-	 * CPF, o que faz sentido para n„o criarmos duas ou mais contas correntes para
+	 * Pela regra que implementamos, N√£o se pode adicionar uma nova para um mesmo
+	 * CPF, o que faz sentido para n√£o criarmos duas ou mais contas correntes para
 	 * um mesmo CPF. No entanto, acredito que uma pessoa com o mesmo CPF pode ter
-	 * uma conta especial e uma corrente, se for o caso disso, o mÈtodo abaixo deve
+	 * uma conta especial e uma corrente, se for o caso disso, o m√©todo abaixo deve
 	 * ser modificado. (METODO MODIFICADO POR ICARO)
 	 */
-	public void addAccount(Account account) {
-		
+	public String addAccount(Account account) {
 		if (!ValidationAccount.existNumberCPF(account.getCpf(), this.accounts)) {
 			this.accounts.add(account);
-			System.out.println("Adicionado com sucesso !!");
-		}
-		else {
-			if(ValidationAccount.getNumberOfAccounts(account.getCpf(), this.accounts) < 2) {
+			 return "Adicionado com sucesso !!";
+		} else {
+			if (ValidationAccount.getNumberOfAccounts(account.getCpf(), this.accounts) < 2) {
 				String className = account.getClass().getName();
-				if(!ValidationAccount.existClassNameAccount(className, this.accounts)) {
+				if (!ValidationAccount.existClassNameAccount(className, this.accounts)) {
 					this.accounts.add(account);
-					System.out.println("Adicionado com sucesso !!");}
-				else {
-				System.out.println("j· existe uma conta com esse CPF.");
-			}
-			
+					return "Adicionado com sucesso !!";
+				} else {
+					return "j√° existe uma conta com esse CPF.";
+				}
+
 			} else {
-				System.out.println("j· existe uma conta com esse CPF.");
+				return "j√° existe uma conta com esse CPF.";
 			}
-			
-	}
+
+		}
 	}
 		
 
 	/*
-	 * AtenÁ„o !!! Se a lÛgica do addCount for modificada, o mÈtodo abaixo tambÈm
-	 * ser·
+	 * Aten√ß√£o !!! Se a l√≥gica do addCount for modificada, o m√©todo abaixo tamb√©m
+	 * ser√°
 	 */
 	public void removeAccount(String cpf) {
 
