@@ -11,13 +11,9 @@ Sprint 1 - Concluída
 Projeto em console capaz de gerenciar contas bancárias realizando operações comuns como: saque, depósito e consulta dos dados.
 
 ### Requisitos para execução
-1. Java_jdk 64 bits instalado 
-2. 
-
+1. Java jdk 11 64 bits instalado 
 
 ### Execução do Projeto
-
-
 
 ### Colaboradores:
 Douglas, Ícaro, Rafael, Murilo, Lucas, Sebastião Alexsandro.
