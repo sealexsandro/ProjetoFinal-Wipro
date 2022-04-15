@@ -1,75 +1,17 @@
 package com.wipro.projetofinal;
 
+import java.util.Scanner;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.wipro.projetofinal.entities.CheckingAccount;
 import com.wipro.projetofinal.entities.SpecialAccount;
 import com.wipro.projetofinal.service.ManageAccounts;
+import com.wipro.projetofinal.service.ValidationAccount;
 
 @SpringBootApplication
 public class ProjetofinalWiproApplication {
-
-	public static void main(String[] args) {
-		// Não apaguem esta linha de baixo
-//		SpringApplication.run(ProjetofinalWiproApplication.class, args);
-
-/*teste conta especial
-		contaEspecial1.deposit(200);
-		System.out.println(gerenciaContas.showAccount("529.982.247-29"));
-		
-		contaEspecial1.withdraw(100);
-		System.out.println(gerenciaContas.showAccount("529.982.247-29"));
-		
-		contaEspecial1.withdraw(100);
-		System.out.println(gerenciaContas.showAccount("529.982.247-29"));
-		
-		contaEspecial1.withdraw(100);
-		System.out.println(gerenciaContas.showAccount("529.982.247-29"));
-		
-		contaEspecial1.withdraw(200);
-		System.out.println(gerenciaContas.showAccount("529.982.247-29"));
-		
-		contaEspecial1.withdraw(15);
-		System.out.println(gerenciaContas.showAccount("529.982.247-29"));
-		*/
-
-		/*teste conta corrente
-		contaCorrente1.deposit(200);
-		System.out.println(gerenciaContas.showAccount("529.982.247-25"));
-		
-		contaCorrente1.withdraw(100);		
-		System.out.println(gerenciaContas.showAccount("529.982.247-25"));
-		
-		contaCorrente1.withdraw(100);		
-		System.out.println(gerenciaContas.showAccount("529.982.247-25"));
-		
-		contaCorrente1.withdraw(100);		
-		System.out.println(gerenciaContas.showAccount("529.982.247-25"));
-		*/
-
-		/*try {
-		    contaCorrente1.deposit(-1);
-		    
-			contaCorrente1.withdraw(10);
-		}catch(ErrorTypes e) {
-			System.err.println(e.getMessage());
-		}
-		System.out.println(gerenciaContas.showAccount("529.982.247-25"));
-		*/
-
-		/* saques
-		contaCorrente1.withdraw(10);
-		
-		contaEspecial1.withdraw(300);
-		
-		System.out.println(gerenciaContas.showAccount("529.982.247-29"));
-		
-		contaEspecial1.withdraw(10);
-		
-		*/
-	}
-
 
 	public static void showMenu() {
 
@@ -88,98 +30,95 @@ public class ProjetofinalWiproApplication {
 		// Não apaguem esta linha de baixo
 //		SpringApplication.run(ProjetofinalWiproApplication.class, args);
 
-
 		ManageAccounts ma = new ManageAccounts();
 
 		Scanner leia = new Scanner(System.in);
-		String nome,cpf;
-		int op,tipoConta;
+		String nome, cpf;
+		int op, tipoConta;
 		char decision = ' ';
 
 		do {
 
-			showMenu();			
+			showMenu();
 			op = leia.nextInt();
 
-			switch(op) {
+			switch (op) {
 
 			case 1:
 				System.out.println("***************************************");
 				System.out.println("Escolha o tipo de conta: [1] Conta corrente [2] Conta especial");
 				tipoConta = leia.nextInt();
 
-
-				while(tipoConta != 1 && tipoConta != 2) {
+				while (tipoConta != 1 && tipoConta != 2) {
 					System.out.println("Escolha o tipo de conta: [1] Conta corrente [2] Conta especial");
 					tipoConta = leia.nextInt();
-				}		
+				}
 
 				System.out.println("Digite o nome do cliente:");
 				leia.nextLine();
-				nome = leia.nextLine();				
+				nome = leia.nextLine();
 				System.out.println("Digite o cpf do cliente:");
 				cpf = leia.next();
 
-				while(!ValidationAccount.isCPF(cpf)) {					
+				while (!ValidationAccount.isCPF(cpf)) {
 					System.out.println("O mer irmão, presta atenção! Digite um cpf válido:");
 					cpf = leia.next();
-					//666.88.996-7-false
-					//888.888.888-67-true
-				}				
+					// 666.88.996-7-false
+					// 888.888.888-67-true
+				}
 
-				if(tipoConta == 1) {					
-					CheckingAccount cc = new CheckingAccount(0.0,nome,cpf);
+				if (tipoConta == 1) {
+					CheckingAccount cc = new CheckingAccount(0.0, nome, cpf);
 
-					System.out.println("\n"+cc.toString()+"\n");
-
+					System.out.println("\n" + cc.toString() + "\n");
 
 					System.out.println("Confirma os dados? [S][s]sim [N][n]não");
 
-					decision =  leia.next().charAt(0);
+					decision = leia.next().charAt(0);
 
-					if(decision == 'S' || decision == 's') {
-						ma.addAccount(cc);					
+					if (decision == 'S' || decision == 's') {
+						ma.addAccount(cc);
 						System.out.println("Conta corrente adicionada  com sucesso");
-					}else {
+					} else {
 						System.out.println("Conta não criada");
 						cc = null;
-					}	
+					}
 
-				}else if(tipoConta == 2) {
-					SpecialAccount sa = new SpecialAccount(0.0,nome,300.0,cpf);
-					System.out.println("\n"+sa.toString()+"\n");
+				} else if (tipoConta == 2) {
+					SpecialAccount sa = new SpecialAccount(0.0, nome, 300.0, cpf);
+					System.out.println("\n" + sa.toString() + "\n");
 
 					System.out.println("Confirma os dados? [S][s]sim [N][n]não");
-					decision =  leia.next().charAt(0);
-					if(decision == 'S' || decision == 's') {
-						ma.addAccount(sa);					
+					decision = leia.next().charAt(0);
+					if (decision == 'S' || decision == 's') {
+						ma.addAccount(sa);
 						System.out.println("Conta especial adicionada com sucesso");
-					}else {
+					} else {
 						System.out.println("Conta não criada");
 						sa = null;
-					}	
-				}				
+					}
+				}
 				break;
 
 			case 2:
 				System.out.println("Digite o cpf do cliente:");
 				cpf = leia.next();
-				System.out.println(""+ma.showAccount(cpf)+"");
+				System.out.println("" + ma.showAccount(cpf) + "");
 				break;
 
 			case 3:
 				ma.showAllAccounts();
-				break;	
+				break;
 
-			case 4:	
+			case 4:
 				break;
 
 			default:
 				System.err.println("Escolha uma opção seu jeca!");
 				break;
-			}			
+			}
 
-		}while(op != 4);
+		} while (op != 4);
 
 	}
 
