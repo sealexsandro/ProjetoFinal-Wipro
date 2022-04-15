@@ -169,7 +169,7 @@ public class ProjetofinalWiproApplication {
 
 		Scanner leia = new Scanner(System.in);
 		String nome, cpf;
-		int op, tipoConta;
+		int op, tipoConta,numberAccount;
 		char decision = ' ';
 
 		do {
@@ -211,13 +211,19 @@ public class ProjetofinalWiproApplication {
 
 					decision = leia.next().charAt(0);
 
-					if (decision == 'S' || decision == 's') {
-						ma.addAccount(cc);
-						System.out.println("Conta corrente adicionada  com sucesso");
-					} else {
+					if(decision == 'S' || decision == 's') {
+						if(ma.addAccount(cc) == "Adicionado com sucesso !!") {
+							System.out.print("Conta corrente foi adicionada com sucesso !!\n"); 
+							menuOperacoes(cc,ma);
+						}
+						else if (ma.addAccount(cc) == "já existe uma conta com esse CPF.") {
+							System.out.print("Já existe uma conta corrente com esse CPF, favor informar outro.\n");
+							cc = null;
+						}
+					}else {
 						System.out.println("Conta não criada");
 						cc = null;
-					}
+					}	
 
 				} else if (tipoConta == 2) {
 					SpecialAccount sa = new SpecialAccount(0.0, nome, 300.0, cpf);
@@ -225,10 +231,16 @@ public class ProjetofinalWiproApplication {
 
 					System.out.println("Confirma os dados? [S][s]sim [N][n]não");
 					decision = leia.next().charAt(0);
-					if (decision == 'S' || decision == 's') {
-						ma.addAccount(sa);
-						System.out.println("Conta especial adicionada com sucesso");
-					} else {
+					if(decision == 'S' || decision == 's') {
+						if(ma.addAccount(sa) == "Adicionado com sucesso !!") {
+							System.out.print("Conta especial foi adicionada com sucesso !!\n"); 
+							menuOperacoes(sa,ma);
+						}
+						else if (ma.addAccount(sa) == "já existe uma conta com esse CPF.") {
+							System.out.print("Já existe uma conta especial com esse CPF, favor informar outro.\n");
+							sa = null;
+						}
+					}else {
 						System.out.println("Conta não criada");
 						sa = null;
 					}
@@ -236,9 +248,9 @@ public class ProjetofinalWiproApplication {
 				break;
 
 			case 2:
-				System.out.println("Digite o cpf do cliente:");
-				cpf = leia.next();
-				System.out.println("" + ma.showAccount(cpf) + "");
+				System.out.println("Digite o número da conta:");
+				numberAccount = leia.nextInt();
+				System.out.println(""+ma.showAccount(numberAccount)+"");
 				break;
 
 			case 3:
