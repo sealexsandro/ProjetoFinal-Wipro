@@ -12,10 +12,15 @@ public class CheckingAccount extends Account {
 	 */
 	@Override
 	public void withdraw(double amount) {
-		if (this.balance >= amount) {
-			super.withdraw(amount);
+		if (amount < 0) {
+			System.out.println("Operação inválida.");
 		} else {
-			System.out.println("Saldo Insuficiente!");
+			if (this.balance >= amount) {
+				super.withdraw(amount);
+				System.out.println("Saque realizado com sucesso !");
+			} else {
+				System.out.println("Saldo Insuficiente!");
+			}
 		}
 	}
 
@@ -27,7 +32,7 @@ public class CheckingAccount extends Account {
 		} else {
 			return "\n======= Conta Corrente ====== \n" + "Número da conta = " + accountNumber + "\n" + "Saldo = "
 					+ balance + "\n" + "Cliente = " + holder + "\n" + "CPF = " + cpf + "\n"
-					+ "Cartão de crédito: vazio";
+					+ "Cartão de crédito: não possui";
 		}
 	}
 
