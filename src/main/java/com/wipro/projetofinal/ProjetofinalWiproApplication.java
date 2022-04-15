@@ -103,6 +103,48 @@ public class ProjetofinalWiproApplication {
 		*/
 	}
 
+	public static String menuOperacoes(Account a, ManageAccounts ma) {
+		int op;
+		Double valor;
+		
+		do {
+		System.out.println("************************************************");
+		System.out.println("\t\t Wipro Banking\n \t\t Menu de opções \t\t\t");
+		System.out.println("************************************************");
+		System.out.println("[1] Depositar");
+		System.out.println("[2] Sacar");
+		System.out.println("[3] Habilitar cartão de crédito");
+		System.out.println("[4] Sair");
+		System.out.println("************************************************");
+		System.out.println("Escolha uma opção:");
+		Scanner leia = new Scanner(System.in);
+		op = leia.nextInt();
+		switch(op) {
+		case 1:
+			System.out.println("Quanto deseja depositar?");
+			valor = leia.nextDouble();
+			a.deposit(valor);
+			break;
+		case 2:
+			System.out.println("Quanto deseja sacar?");
+			valor = leia.nextDouble();
+			a.withdraw(valor);
+			break;
+		case 3:
+			ma.activateCreditCard(a);
+			System.out.println("Cartão Ativado com sucesso");
+			break;
+		case 4:
+			return "voltando para o menu principal";
+		
+		default:
+			System.err.println("Escolha uma opção válida");
+			break;
+		}
+		
+		}while(op != 4);
+		return "voltando para o menu principal";
+	}
 	
 	public static void showMenu() {
 
