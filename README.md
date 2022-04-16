@@ -16,4 +16,4 @@ Projeto em console capaz de gerenciar contas bancárias realizando operações c
 ### Execução do Projeto
 
 ### Colaboradores:
-Douglas, Ícaro, Rafael, Murilo, Lucas, Sebastião Alexsandro.
+Douglas Williams, Ícaro Leone, Rafael Roco, Murilo Fernandes, Lucas Vilela, Sebastião Alexsandro.

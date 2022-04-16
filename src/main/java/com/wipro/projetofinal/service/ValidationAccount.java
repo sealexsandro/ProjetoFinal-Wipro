@@ -7,7 +7,6 @@ import com.wipro.projetofinal.entities.Account;
 
 public class ValidationAccount {
 
-	// N�o estamos utilizando o metodo abaixo
 	public static boolean existNumberAcount(Integer numberAccount, List<Account> accounts) {
 		for (Account account : accounts) {
 			if (account.getAccountNumber() == numberAccount) {
