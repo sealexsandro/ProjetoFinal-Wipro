@@ -128,7 +128,7 @@ public class ProjetofinalWiproApplication {
 				valor = leia.nextDouble();
 				a.deposit(valor);
 				System.out.println("Seu saldo é de :  R$" + a.getBalance());
-				
+
 				break;
 			case 2:
 				System.out.println("Quanto deseja sacar?");
@@ -140,11 +140,11 @@ public class ProjetofinalWiproApplication {
 				ma.activateCreditCard(a);
 				System.out.println("Cartão Ativado com sucesso");
 				break;
-				
+
 			case 4:
 				System.out.println("Seu saldo é de :  R$" + a.getBalance());
 				break;
-				
+
 			case 5:
 				return "voltando para o menu principal";
 
@@ -179,7 +179,7 @@ public class ProjetofinalWiproApplication {
 
 		Scanner leia = new Scanner(System.in);
 		String nome, cpf;
-		int op, tipoConta,numberAccount;
+		int op, tipoConta, numberAccount;
 		char decision = ' ';
 
 		do {
@@ -221,19 +221,18 @@ public class ProjetofinalWiproApplication {
 
 					decision = leia.next().charAt(0);
 
-					if(decision == 'S' || decision == 's') {
-						if(ma.addAccount(cc) == "Adicionado com sucesso !!") {
-							System.out.print("Conta corrente foi adicionada com sucesso !!\n"); 
-							menuOperacoes(cc,ma);
-						}
-						else if (ma.addAccount(cc) == "já existe uma conta com esse CPF.") {
+					if (decision == 'S' || decision == 's') {
+						if (ma.addAccount(cc) == "Adicionado com sucesso !!") {
+							System.out.print("Conta corrente foi adicionada com sucesso !!\n");
+							menuOperacoes(cc, ma);
+						} else if (ma.addAccount(cc) == "já existe uma conta com esse CPF.") {
 							System.out.print("Já existe uma conta corrente com esse CPF, favor informar outro.\n");
 							cc = null;
 						}
-					}else {
+					} else {
 						System.out.println("Conta não criada");
 						cc = null;
-					}	
+					}
 
 				} else if (tipoConta == 2) {
 					SpecialAccount sa = new SpecialAccount(0.0, nome, 300.0, cpf);
@@ -241,16 +240,15 @@ public class ProjetofinalWiproApplication {
 
 					System.out.println("Confirma os dados? [S][s]sim [N][n]não");
 					decision = leia.next().charAt(0);
-					if(decision == 'S' || decision == 's') {
-						if(ma.addAccount(sa) == "Adicionado com sucesso !!") {
-							System.out.print("Conta especial foi adicionada com sucesso !!\n"); 
-							menuOperacoes(sa,ma);
-						}
-						else if (ma.addAccount(sa) == "já existe uma conta com esse CPF.") {
+					if (decision == 'S' || decision == 's') {
+						if (ma.addAccount(sa) == "Adicionado com sucesso !!") {
+							System.out.print("Conta especial foi adicionada com sucesso !!\n");
+							menuOperacoes(sa, ma);
+						} else if (ma.addAccount(sa) == "já existe uma conta com esse CPF.") {
 							System.out.print("Já existe uma conta especial com esse CPF, favor informar outro.\n");
 							sa = null;
 						}
-					}else {
+					} else {
 						System.out.println("Conta não criada");
 						sa = null;
 					}
@@ -260,20 +258,19 @@ public class ProjetofinalWiproApplication {
 			case 2:
 				System.out.println("Digite o número da conta:");
 				numberAccount = leia.nextInt();
-				System.out.println(""+ma.showAccount(numberAccount)+"");
-				
+				System.out.println("" + ma.showAccount(numberAccount) + "");
+
 				break;
 
 			case 3:
 				ma.showAllAccounts();
 				break;
 
-
 			case 4:
 				System.out.println("Digite o número da conta:");
 				numberAccount = leia.nextInt();
-				System.out.println(""+ma.removeAccount(numberAccount)+"");
-				
+				System.out.println("" + ma.removeAccount(numberAccount) + "");
+
 				break;
 
 			case 5:

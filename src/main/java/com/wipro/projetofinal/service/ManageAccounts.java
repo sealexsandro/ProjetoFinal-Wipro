@@ -25,7 +25,7 @@ public class ManageAccounts {
 		} else {
 			if (ValidationAccount.getNumberOfAccounts(account.getCpf(), this.accounts) < 2) {
 				String className = account.getClass().getName();
-				if (!ValidationAccount.existClassNameAccount(className, this.accounts)) {
+				if (!ValidationAccount.existClassNameAccount(account.getCpf(), className, this.accounts)) {
 					this.accounts.add(account);
 					return "Adicionado com sucesso !!";
 				} else {
@@ -43,10 +43,10 @@ public class ManageAccounts {
 			if (account.getAccountNumber() == numberAccount) {
 				accounts.remove(account);
 				return "Conta Removida com sucesso !!";
-				
+
 			}
 		}
-		
+
 		return "Conta não encontrada";
 	}
 
@@ -100,19 +100,17 @@ public class ManageAccounts {
 	}
 
 	public void showAllAccounts() {
-		if(accounts.size() <= 0) {
+		if (accounts.size() <= 0) {
 			System.out.println("Não há contas cadastradas.");
-		}else {
+		} else {
 			System.out.println("\tTodas as Contas");
 			System.out.println("------------------------------------------");
 			for (Account conta : this.accounts) {
 				System.out.println(conta.toString());
 			}
 			System.out.println("-------------------------------------------");
-			
+
 		}
-		
-		
 
 	}
 }

@@ -83,15 +83,13 @@ public class ValidationAccount {
 		}
 	}
 
-	public static boolean existClassNameAccount(String className, List<Account> accounts) {
+	public static boolean existClassNameAccount(String cpf, String className, List<Account> accounts) {
 		for (Account account : accounts) {
-			if (account.getClass().getName().equals(className)) {
+			if (account.getCpf().equals(cpf) && account.getClass().getName().equals(className)) {
 				return true;
 			}
 		}
-
 		return false;
-
 	}
 
 	public static int getNumberOfAccounts(String cpf, List<Account> accounts) {
