@@ -12,7 +12,7 @@ Projeto em console capaz de gerenciar contas bancárias realizando operações c
 
 ### Requisitos para execução
 1. Java jdk 11 64 bits instalado 
-2. IDE Eclipse (importar como projeto maven).
+2. IDE Eclipse (importar como projeto existente maven).
 
 ### Execução do Projeto
 
