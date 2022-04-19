@@ -1,13 +1,29 @@
 package com.wipro.projetofinal.entities;
 
+import java.io.Serializable;
 import java.util.Calendar;
+import java.util.Objects;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 import com.wipro.projetofinal.entities.enums.CardLevel;
 
-public class CreditCard {
+@Entity
+@Table(name = "tb_creditcard")
+public class CreditCard implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
 	private String cardNumber;
-	private Double limit;
+	private Double creditLimit;
 	private String cvv;
 	private Calendar expirationDate;
 	private String flag;
@@ -22,7 +38,7 @@ public class CreditCard {
 	public CreditCard(String cardNumber, String cvv) {
 		this.ativo = true;
 		this.cardNumber = cardNumber;
-		this.limit = 300.0;
+		this.creditLimit = 300.0;
 		this.cvv = cvv;
 		this.expirationDate = Calendar.getInstance();
 		this.expirationDate.add(Calendar.YEAR, 6); // A validade serï¿½ contada da data atual somado com mais 6 anos
@@ -34,8 +50,12 @@ public class CreditCard {
 		return cardNumber;
 	}
 
-	public Double getLimit() {
-		return limit;
+	public Double getCreditLimit() {
+		return creditLimit;
+	}
+
+	public void setCreditLimit(Double creditLimit) {
+		this.creditLimit = creditLimit;
 	}
 
 	public String getCvv() {
@@ -58,16 +78,25 @@ public class CreditCard {
 		return ativo;
 	}
 
+	public Long getId() {
+		return id;
+	}
+
 	@Override
-	public String toString() {
-		int mes = this.expirationDate.get(Calendar.MONTH) + 1;
-		int ano = this.expirationDate.get(Calendar.YEAR);
+	public int hashCode() {
+		return Objects.hash(id);
+	}
 
-		String expirationDate = "" + mes + "/" + ano;
-
-		return "\n====== Cartão de crédito ====== \n" + "Número do cartão = " + cardNumber + "\n" + "Limite do cartão ="
-				+ limit + "\n" + "CVV = " + cvv + "\n" + "Data de válidade = " + expirationDate + "\n" + "Bandeira "
-				+ flag + "\n" + "Nível do cartao = " + cardLevel + "\n" + "ativo = " + ativo + "\n";
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		CreditCard other = (CreditCard) obj;
+		return Objects.equals(id, other.id);
 	}
 
 }
